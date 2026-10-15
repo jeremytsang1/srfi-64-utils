@@ -1,9 +1,9 @@
-(define-module (src util test)
+(define-module (srfi-64-utils s64u)
   #:use-module (ice-9 match)
   #:use-module (srfi srfi-64)
-  #:export (qnr-generate-log-file-name
-            qnr-test-error-message
-            qnr-test-error))
+  #:export (s64u-generate-log-file-name
+            s64u-test-error-message
+            s64u-test-error))
 
 (define EXPECTED_TEST_SCRIPT_SUFFIX ".scm")
 (define EXPECTED_TEST_SCRIPT_ARGUMENT_COUNT
@@ -13,14 +13,14 @@
 ;; TODO: Handle this exception using the modern exception handling approach
 ;; (see 6.11.8.2 Raising and Handling Exceptions)
 (define EXCEPTION-INCORRECT-ARG-COUNT
-  'qnr-exception-incorrect-test-script-arg-count)
+  's64u-exception-incorrect-test-script-arg-count)
 (define EXCEPTION-INCORRECT-ARG-COUNT-MESSAGE
   (format
    #f
    "Test scripts must take exactly ~a argument(s)"
    EXPECTED_TEST_SCRIPT_ARGUMENT_COUNT))
 
-(define (qnr-generate-log-file-name)
+(define (s64u-generate-log-file-name)
   "Create the name of the test file's corresponding log file.
 
 Read directory to write the test log file to from first command line argument.
@@ -55,10 +55,10 @@ log file."
 Assumes STR is not empty."
   (string-take-right str 1))
 
-(define (qnr-test-error-message test-name
-                                error-key
-                                expected-error-message
-                                hunk-to-test)
+(define (s64u-test-error-message test-name
+                                 error-key
+                                 expected-error-message
+                                 hunk-to-test)
   "Runs TEST-EXPRESSION in an attempt to catch ERROR-KEY which should pass
 EXPECTED-ERROR-MESSAGE."
   (test-equal test-name
@@ -66,11 +66,11 @@ EXPECTED-ERROR-MESSAGE."
     (catch
       error-key
       ;; Note this needs to be a hunk so it is not evaluated before being
-      ;; passed to `qnr-test-error-message`
+      ;; passed to `s64u-test-error-message`
       hunk-to-test
       (lambda (key . args) (car args)))))
 
-(define (qnr-test-error test-name error-key hunk-to-test)
+(define (s64u-test-error test-name error-key hunk-to-test)
   (test-assert test-name
     (catch error-key
       (lambda ()
