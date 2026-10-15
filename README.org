@@ -1,0 +1,12 @@
+#+OPTIONS: toc:nil num:nil ^:nil tags:nil tasks:t todo:nil
+#+TITLE: SRFI-64 Utils
+#+AUTHOR: Jeremy Tsang
+#+LATEX_HEADER: \usepackage{mathtools}
+#+LATEX_HEADER: \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+#+LATEX_HEADER: \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+#+LATEX_HEADER: \usepackage[margin={0.5in, 1in}]{geometry}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \usepackage{siunitx}
+# #+LATEX: \setlength\parindent{0pt}  # no indentations
+* Description
+- Set of convince/helper functions for SRFI-64 testing in GNU Guile.
