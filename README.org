@@ -25,3 +25,10 @@ Set of convince/helper functions for SRFI-64 testing in GNU Guile.
    |------------------------+----------------------------|
    | =git submodule update= | =magit-submodule-populate= |
    |------------------------+----------------------------|
+** Project Structure
+- This module includes a makefile to automatically run all tests in a given directory.
+
+- The expected structure of the enclosing project must conform to the following.
+  1) a directory filled with test files  to run (specified by makefile variable =DIR-TESTS=)
+  2) a log directory to output resulting log files (specified by makefile variable  =DIR_LOGS=).
+  3) a source directory to rerun the tests if they have changed (specified by makefile variable  =DIR_SRC=)
