@@ -9,7 +9,7 @@
 #+LATEX_HEADER: \usepackage{siunitx}
 # #+LATEX: \setlength\parindent{0pt}  # no indentations
 * Description
-- Set of convince/helper functions for SRFI-64 testing in GNU Guile.
+Set of convince/helper functions for SRFI-64 testing in GNU Guile.
 * Usage
 ** When Used in another Repo as a Submodule
 1) Initialize local configuration file
